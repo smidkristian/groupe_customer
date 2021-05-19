@@ -1,14 +1,20 @@
 <template>
     <div class="bg-gray-50 mb-10 shadow">
-      <ul class="flex justify-between mx-6 lg:mx-20 xl:mx-96 text-gray-800 py-5">
+      <ul class="flex justify-between mx-6 lg:mx-20 xl:mx-96 text-gray-800 py-4">
         <div class="flex justify-center">
-            <h1>
-              Tefal
-            </h1>
+          <img src="~/assets/logo/tefal_logo_smaller.png" alt="groupe_seb_logo.png" class="object-none">
         </div>
         <div>
             <Nuxt-Link :to="{ name: 'index' }" class="px-2">Home</Nuxt-Link>
             <Nuxt-Link :to="{ name: 'profile-overview' }" class="px-2">Profile</Nuxt-Link>
+            <button
+              class="bg-red-600 text-white px-4 py-1 text-sm tracking-wide font-bold rounded-md focus:outline-none"
+              @click="modalShowing = true">
+                Register
+            </button>
+            <Modal :showing="modalShowing" @close="modalShowing = false">
+                <FormRegister></FormRegister>
+            </Modal>
 
             <!-- <Nuxt-Link v-if="$auth.loggedIn" :to="{ name: 'dashboard' }" class="px-2">Dashboard</Nuxt-Link> -->
         </div>
@@ -30,6 +36,12 @@
 
 <script>
     export default {
+
+        data() {
+              return {
+                  modalShowing: false,
+              }
+        },
         methods: {
             // async logout () {
             //     await this.$auth.logout()

@@ -34,7 +34,27 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
+    '@nuxtjs/auth-next'
   ],
+
+  auth: {
+    strategies: {
+      'laravelSanctum': {
+        provider: 'laravel/sanctum',
+        url: 'http://localhost:8888'
+      },
+    }
+  },
+
+  loading: '@/components/Loading/Component.vue',
+
+  axios: {
+    baseUrl: 'http://localhost:8888',
+    // proxy: true,
+    credentials: true
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

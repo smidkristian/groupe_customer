@@ -1,11 +1,7 @@
 <template>
-  <div class="flex flex-col h-screen bg-gray-100">
-    <div>
+  <div class="h-screen bg-gray-100">
       <NavBar />
-    </div>
-    <div class="w-full h-full">
       <Nuxt />
-    </div>
   </div>
 </template>
 
