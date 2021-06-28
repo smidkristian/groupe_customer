@@ -18,7 +18,12 @@
         <CardHeadTwo class="p-4">My leads</CardHeadTwo>
       </template>
       <template #body>
-        <TableComponent :tableData="leads" :tableHeaders="ths" />
+        <TableComponent
+            :tableHeaders="ths"
+            :tableData="leads"
+            :defaultSortBy="'id'"
+            :tablePageSize="7"
+            :detailPageUrlName="'profile-lead-id'" />
       </template>
     </CardComponent>
     <CardComponent>
